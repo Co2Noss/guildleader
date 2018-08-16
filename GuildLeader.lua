@@ -888,10 +888,10 @@ end
 
 function GuildLeader:IsCity(citycheck)
   for index = 1, #citycheck do
-        if citycheck[index] == GetZoneText(); then
+        if citycheck[index] == GetZoneText() then
         return true
       end
-    else
+      
       return false
     end
   end
