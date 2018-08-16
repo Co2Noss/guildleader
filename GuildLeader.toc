@@ -1,0 +1,26 @@
+## Interface: 80000
+## Title: GuildLeader
+## Version: 1.0.4
+## Author: Impurity
+## Credits: Rotty, Yottabyte
+## X-Date: 08-07-2018
+## Notes: For all your guild recruitment and automation needs!
+## X-Category: Guild
+## X-License: As-Is Free Use And Distribution
+## X-Curse-Packaged-Version: 1.0.4
+## X-Curse-Project-Name: GuildLeader
+## X-Curse-Project-ID: 300266
+## X-Curse-Repository-ID: 
+## DefaultState: enabled
+## LoadOnDemand: 0
+## SavedVariables: GuildLeaderDB
+## OptionalDeps: Ace3
+## LoadManagers: AddonLoader
+## X-LoadOn-Guild: true
+## X-LoadOn-Slash: /GuildLeader, /gl
+
+#@no-lib-strip@
+embeds.xml
+#@end-no-lib-strip@
+
+GuildLeader.lua
