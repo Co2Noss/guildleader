@@ -1,5 +1,5 @@
 local GUI = LibStub("AceGUI-3.0")
-local citycheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exodar", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"}
+
 --Options Interface--
 local options = { 
 	name = function(info)
@@ -886,14 +886,16 @@ end
 end
 
 
-function GuildLeader:IsCity(citycheck)
+function GuildLeader:IsCity(isCityZone, citycheck)
+local isCityZone = GetZoneText();
+local citycheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exodar", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"}
   for index = 1, #citycheck do
-        if citycheck[index] == GetZoneText() then
+        if citycheck[index] == isCityZone then
         return true
       end
       
       return false
-    end
+        end
   end
     
 
