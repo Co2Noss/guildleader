@@ -885,12 +885,12 @@ end
 end
 end
 
-
-function GuildLeader:IsCity(isCityZone, citycheck)
+--Check if player is in City --
+function GuildLeader:IsCity(isCityZone, cityCheck)
 local isCityZone = GetZoneText();
-local citycheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exodar", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"}
-  for index = 1, #citycheck do
-        if citycheck[index] == isCityZone then
+local cityCheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exodar", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"};
+  for index = 1, #cityCheck do
+        if cityCheck[index] == isCityZone then
         return true
       end
       
