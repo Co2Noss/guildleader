@@ -1,5 +1,5 @@
 local GUI = LibStub("AceGUI-3.0")
-
+local citycheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exodar", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"}
 --Options Interface--
 local options = { 
 	name = function(info)
@@ -886,47 +886,16 @@ end
 end
 
 
-function GuildLeader:IsCity()
-if (GetZoneText())=="Stormwind City" then
-return true
-elseif (GetZoneText())=="Darnassus" then
-return true
-elseif (GetZoneText())=="City of Ironforge" then
-return true
-elseif (GetZoneText())=="The Exodar" then
-return true
-elseif (GetZoneText())=="Shrine of Seven Stars" then
-return true
-elseif (GetZoneText())=="Stormshield" then
-return true
-elseif (GetZoneText())=="Lunarfall" then
-return true
-elseif (GetZoneText())=="Orgrimmar" then
-return true
-elseif (GetZoneText())=="Thunder Bluff" then
-return true
-elseif (GetZoneText())=="Undercity" then
-return true
-elseif (GetZoneText())=="Silvermoon City" then
-return true
-elseif (GetZoneText())=="Shrine of Two Moons" then
-return true
-elseif (GetZoneText())=="Warspear" then
-return true
-elseif (GetZoneText())=="Frostwall" then
-return true
-elseif (GetZoneText())=="Dalaran" then
-return true
-elseif (GetZoneText())=="Shattrath City" then
-return true
-elseif (GetZoneText())=="Zuldazar" then
-return true
-elseif (GetZoneText())=="Boralus Harbor" then
-return true
-else
-return false
-end
-end
+function GuildLeader:IsCity(citycheck)
+  for index = 1, #citycheck do
+        if citycheck[index] == GetZoneText(); then
+        return true
+      end
+    else
+      return false
+    end
+  end
+    
 
 function GuildLeader:CheckTime(GMzone)
 if GMzone==nil then
