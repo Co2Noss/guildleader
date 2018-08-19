@@ -4,7 +4,7 @@ citNum = 0
 --Options Interface--
 local options = { 
 	name = function(info)
-			return "GuildLeader v1.0.3 By: Impurity | Modified by Co2Noss"
+			return "GuildLeader v1.0.31 By: Impurity | Modified by Co2Noss"
 			end,
     handler = GuildLeader,
     type = 'group',
