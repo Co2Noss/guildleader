@@ -1,7 +1,5 @@
 local GUI = LibStub("AceGUI-3.0")
 citNum = 0
-isCityZone=(GetZoneText()) 
-cityCheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exoda", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"}
 
 --Options Interface--
 local options = { 
@@ -871,7 +869,7 @@ if inInstance==false then
 if (GuildLeader:IsCity())==true then
 GMzone="City"
 elseif (GuildLeader:IsCity())~=true then
-GMzone=isCityZone
+GMzone=(GetZoneText())
 end
 end
 if GMzone=="City" and GuildLeader.db.profile.cityspam==true then
@@ -890,6 +888,8 @@ end
 
 --Check if player is in City --
 function GuildLeader:IsCity() 
+isCityZone=(GetZoneText()) 
+cityCheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exoda", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"}
  if (cityCheck[citNum]) == isCityZone then --if already in zone forget code
       return true
 elseif (cityCheck[citNum]) ~= isCityZone then --if not in zone run while loop until detected
