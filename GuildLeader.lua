@@ -1,4 +1,5 @@
 local GUI = LibStub("AceGUI-3.0")
+citNum = 0
 
 --Options Interface--
 local options = { 
@@ -889,28 +890,32 @@ end
 function GuildLeader:IsCity() 
 isCityZone=(GetZoneText())  
 cityCheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exoda", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"}
-if i == nil then --set index to number
-  i = 0 
-end
- if (cityCheck[i]) == isCityZone then --if already in zone forget code
+ if (cityCheck[citNum]) == isCityZone then --if already in zone forget code
       print("true!")
-      print(cityCheck[i])
+      print(cityCheck[citNum])
       return true
-elseif (cityCheck[i]) ~= isCityZone then --if not in zone run while loop until detected
-  while (i <= 18) and ((cityCheck[i]) ~= isCityZone) do
-    if (cityCheck[i]) == isCityZone then --if zone detected return true and end
+elseif (cityCheck[citNum]) ~= isCityZone then --if not in zone run while loop until detected
+  while (citNum <= 18) and ((cityCheck[citNum]) ~= isCityZone) do
+    if (cityCheck[citNum]) == isCityZone then --if zone detected return true and end
       print("true!")
-      print(cityCheck[i])
+      print(cityCheck[citNum])
       return true
-    elseif (cityCheck[i]) ~= isCityZone then ---if not in zone add 1 to index to check th next city
+    elseif (cityCheck[citNum]) ~= isCityZone then ---if not in zone add 1 to index to check th next city
       print("false!")
-      print(cityCheck[i])
-      i = i + 1
-      return i
+      print(cityCheck[citNum])
+      citNum = citNum + 1
+      return citNum
+    elseif (citNum>=18) or (citNum<0) then -- if we count too high or too low reset
+      citNum = 0
+      return citNum
+    elseif (citNum == nil) then
+      citNum = 0
+      return citNum
+    elseif (isCityZone == nil) then
+      citNum = 0
+      return citNum
     end --end initial if loop
   end -- end while loop
-elseif (isCityZone == nil) then -- if not in zone then false
-  return false
   end --if already in zone forget code end
 end -- end of iscity function
 
