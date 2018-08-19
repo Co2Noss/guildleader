@@ -1,10 +1,12 @@
 local GUI = LibStub("AceGUI-3.0")
 citNum = 0
+isCityZone=(GetZoneText()) 
+cityCheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exoda", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"}
 
 --Options Interface--
 local options = { 
 	name = function(info)
-			return "GuildLeader v1.0.3 By: Impurity"
+			return "GuildLeader v1.0.3 By: Impurity | Modified by Co2Noss"
 			end,
     handler = GuildLeader,
     type = 'group',
@@ -869,7 +871,7 @@ if inInstance==false then
 if (GuildLeader:IsCity())==true then
 GMzone="City"
 elseif (GuildLeader:IsCity())~=true then
-GMzone=(GetZoneText())
+GMzone=isCityZone
 end
 end
 if GMzone=="City" and GuildLeader.db.profile.cityspam==true then
@@ -888,30 +890,16 @@ end
 
 --Check if player is in City --
 function GuildLeader:IsCity() 
-isCityZone=(GetZoneText())  
-cityCheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exoda", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"}
  if (cityCheck[citNum]) == isCityZone then --if already in zone forget code
-      print("true!")
-      print(cityCheck[citNum])
       return true
 elseif (cityCheck[citNum]) ~= isCityZone then --if not in zone run while loop until detected
   while (citNum <= 18) and ((cityCheck[citNum]) ~= isCityZone) do
     if (cityCheck[citNum]) == isCityZone then --if zone detected return true and end
-      print("true!")
-      print(cityCheck[citNum])
       return true
     elseif (cityCheck[citNum]) ~= isCityZone then ---if not in zone add 1 to index to check th next city
-      print("false!")
-      print(cityCheck[citNum])
       citNum = citNum + 1
       return citNum
     elseif (citNum>=18) or (citNum<0) then -- if we count too high or too low reset
-      citNum = 0
-      return citNum
-    elseif (citNum == nil) then
-      citNum = 0
-      return citNum
-    elseif (isCityZone == nil) then
       citNum = 0
       return citNum
     end --end initial if loop
