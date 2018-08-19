@@ -1,5 +1,4 @@
 local GUI = LibStub("AceGUI-3.0")
-citNum = 0
 
 --Options Interface--
 local options = { 
@@ -888,22 +887,25 @@ end
 
 --Check if player is in City --
 function GuildLeader:IsCity() 
-isCityZone=(GetZoneText()) 
+isCityZone=(GetZoneText())  
 cityCheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exoda", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Dazar'alor", "Boralus Harbor"}
- if (cityCheck[citNum]) == isCityZone then --if already in zone forget code
+while (i == nil) or (i == 19) do --set index to number
+  i = 0 
+  return i
+end
+ if (cityCheck[i]) == isCityZone then --if already in zone forget code
       return true
-elseif (cityCheck[citNum]) ~= isCityZone then --if not in zone run while loop until detected
-  while (citNum <= 18) and ((cityCheck[citNum]) ~= isCityZone) do
-    if (cityCheck[citNum]) == isCityZone then --if zone detected return true and end
+elseif (cityCheck[i]) ~= isCityZone then --if not in zone run while loop until detected
+  while (i <= 18) and ((cityCheck[i]) ~= isCityZone) do
+    if (cityCheck[i]) == isCityZone then --if zone detected return true and end
       return true
-    elseif (cityCheck[citNum]) ~= isCityZone then ---if not in zone add 1 to index to check th next city
-      citNum = citNum + 1
-      return citNum
-    elseif (citNum>=18) or (citNum<0) then -- if we count too high or too low reset
-      citNum = 0
-      return citNum
+    elseif (cityCheck[i]) ~= isCityZone then ---if not in zone add 1 to index to check th next city
+      i = i + 1
+      return i
     end --end initial if loop
   end -- end while loop
+elseif (isCityZone == nil) then -- if not in zone then false
+  return false
   end --if already in zone forget code end
 end -- end of iscity function
 
