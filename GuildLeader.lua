@@ -888,15 +888,15 @@ end
 --Check if player is in City --
 function GuildLeader:IsCity() 
 isCityZone=(GetZoneText())  
-cityCheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exoda", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Zuldazar", "Boralus Harbor"}
-while (i == nil) or (i == 19) do --set index to number
+cityCheck = {"Stormwind City", "Darnassus", "City of Ironforge", "The Exoda", "Shrine of Seven Stars", "Stormshield", "Lunarfall", "Orgrimmar", "Thunder Bluff", "Undercity", "Silvermoon City", "Shrine of Two Moons", "Warspear", "Frostwall", "Dalaran", "Shattrath City", "Zuldazar", "Boralus Harbor", "Dazar'alor"}
+while (i == nil) or (i == 20) do --set index to number
   i = 0 
   return i
 end
  if (cityCheck[i]) == isCityZone then --if already in zone forget code
       return true
 elseif (cityCheck[i]) ~= isCityZone then --if not in zone run while loop until detected
-  while (i <= 18) and ((cityCheck[i]) ~= isCityZone) do
+  while (i <= 19) and ((cityCheck[i]) ~= isCityZone) do
     if (cityCheck[i]) == isCityZone then --if zone detected return true and end
       return true
     elseif (cityCheck[i]) ~= isCityZone then ---if not in zone add 1 to index to check th next city
